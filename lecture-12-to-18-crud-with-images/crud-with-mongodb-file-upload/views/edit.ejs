@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body>
+    <div align="center">
+        <h2>Edit Record</h2>
+  
+        <form method="post" action="/updateRecord" enctype="multipart/form-data">
+            <table cellspacing="10" cellpadding="5"
+                style="border-radius: 5px; border: 3px solid black; font-weight: 700; width: 50%;" align="center">
+                <tr>
+                    <td>Id:</td>
+                    <input type="hidden" value="<%= single.id %>" name="editid">
+                </tr>
+                <tr>
+                    <td>Name:</td>
+                    <td>
+                    <input type="text" value="<%= single.name %>" name="name" style="width: 97%;">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td> <input type="text" value="<%= single.email %>" name="email"></td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td> <input type="text" value="<%= single.password %>" name="password"></td>
+                </tr>
+                <tr>
+                    <td>Gender</td>
+                    <td>
+                        <input type="radio" <% if(single.gender === "male") { %> checked <% } %> name="gender" value="male">Male
+                        <input type="radio" <% if(single.gender === "female") { %> checked <% } %> name="gender" value="female">Female
+                    </td>
+                </tr>
+                <tr>
+                    <td>Image:</td>
+                    <td><input type="file" name="image">
+                        <img src="<%= single.image %>" width="100"/>
+                        </td>
+                </tr>
+
+                <tr>
+                    <td>Hobby</td>
+                    <td>
+                        <input type="checkbox" <% if(single.hobby.includes("reading"))  { %> checked <% } %> name="hobby" value="reading">Reading
+                        <input type="checkbox" <% if(single.hobby.includes("cricket"))  { %> checked <% } %> name="hobby" value="cricket">Cricket
+                        <input type="checkbox" <% if(single.hobby.includes("music"))  { %> checked <% } %> name="hobby" value="music">Music
+                        <input type="checkbox" <% if(single.hobby.includes("travelling"))  { %> checked <% } %> name="hobby" value="travelling">Travelling
+                    </td>
+                </tr>
+                <tr>
+                    <td>City</td>
+                    <td><select name="city">
+                        <option value="">---select city---</option>
+                        <% 
+                                let city = ["surat","vadodara","mahesana","bhavnagar"]
+                                city.map((c)=>{ %>
+                                    <option <% if(single.city === c) { %> selected <% } %> value="<%= c %>"><%= c %></option>
+                       <% }) %>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center"><input type="submit" value="Add Record"></td>
+
+                </tr>
+            </table>
+
+
+
+            <br>
+
+            <center> <a href="/" style="font-size: 18px; font-weight: 700; color: brown; text-decoration: none;">Click
+                    to View Your Data..!</a></center>
+
+        </form>
+    </div>
+</body>
+</html>

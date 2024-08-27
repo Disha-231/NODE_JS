@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Data..!</title>
+</head>
+
+<body>
+    <div align="center">
+        <h2 style="color: brown; font-family: cursive;">----Add Your Data Here----</h2>
+        <form method="post" action="/insertRecord" enctype="multipart/form-data">
+            <table cellspacing="10" cellpadding="5"
+                style="border-radius: 5px; border: 3px solid black; font-weight: 700; width: 50%;" align="center">
+                <tr>
+                    <td>Name:</td>
+                    <td><input type="text" name="name" required style="width: 97%;"></td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td><input type="email" name="email" required style="width: 97%;"></td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td><input type="password" name="password" required style="width: 97%;"></td>
+                </tr>
+                <tr>
+                    <td>Gender</td>
+                    <td>
+                        <input type="radio" name="gender" value="female">Female
+                        <input type="radio" name="gender" value="male">Male
+                    </td>
+                </tr>
+                <tr>
+                    <td>Image:</td>
+                    <td><input type="file" name="image" required></td>
+                </tr>
+                <tr>
+                    <td>Hobby</td>
+                    <td>
+                        <input type="checkbox" name="hobby" value="reading">Reading
+                        <input type="checkbox" name="hobby" value="cricket">Cricket
+                        <input type="checkbox" name="hobby" value="music">Music
+                        <input type="checkbox" name="hobby" value="travelling">Travelling
+                    </td>
+                </tr>
+                <tr>
+                    <td>City</td>
+                    <td>
+                        <select name="city">
+                            <option value="">---select city---</option>
+                            <% let cities = ["surat", "vadodara", "mahesana", "bhavnagar"]; %>
+                            <% cities.forEach(function(city) { %>
+                                <option value="<%= city %>"><%= city %></option>
+                            <% }); %>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center"><input type="submit" value="Add Record"></td>
+                </tr>
+            </table>
+            <br>
+            <center>
+                <a href="/" style="font-size: 18px; font-weight: 700; color: brown; text-decoration: none;">Click to View Your Data..!</a>
+            </center>
+        </form>
+        
+    </div>
+</body>
+
+</html>

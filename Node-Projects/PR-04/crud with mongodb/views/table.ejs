@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View your Record..!</title>
+</head>
+<body>
+    <div align="center">
+        <h2 style="color: brown; font-family: cursive;">Your Added Data Is Here..!</h2>
+        <table border="1" cellspacing="5" cellpadding="5" style="border-radius: 5px; border: 2px solid black; font-weight: 700;font-size: 18px;" align="center">
+            <thead>
+                <tr>
+                    <th>Number</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>Gender</th>
+                    <th>Hobby</th>
+                    <th>City</th>
+                    <th>Image</th>
+                    <th>Delete</th>
+                    <th>Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% users.map((val,index)=>{ %>
+                    <tr>
+                        <td><%= ++index %></td>
+                        <td><%= val.name %></td>
+                        <td><%= val.email %></td>
+                        <td><%= val.password %></td>
+                        <td><%= val.gender %></td>
+                        <td><%= val.hobby %></td>
+                        <td><%= val.city %></td>
+                        <td>
+                            <img src="<%= val.image %>" width="100"/>
+                        </td>
+                        <td>
+                            <a href="/deleteRecord?deleteId=<%= val.id %>"style="font-size: 18px; font-weight: 700; color: black; text-decoration: none;">Delete</a> 
+                            
+                        </td>
+                        <td>
+                            <a href="/editRecord?editId=<%= val.id %>"style="font-size: 18px; font-weight: 700; color: black; text-decoration: none;">Edit</a>
+                        </td>
+                    </tr>
+               <% }) %>
+            </tbody>
+        </table>
+        <br>
+        <a href="/add" style="font-size: 18px; font-weight: 700; color: brown; text-decoration: none;">Click to Add More Data..!</a>
+    </div>
+</body>
+</html>
