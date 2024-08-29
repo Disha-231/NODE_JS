@@ -14,59 +14,40 @@
             <table cellspacing="10" cellpadding="5"
                 style="border-radius: 5px; border: 3px solid black; font-weight: 700; width: 50%;" align="center">
                 <tr>
-                    <td>Name:</td>
+                    <td>Book-Name:</td>
                     <td><input type="text" name="name" required style="width: 97%;"></td>
                 </tr>
                 <tr>
-                    <td>Email:</td>
-                    <td><input type="email" name="email" required style="width: 97%;"></td>
+                    <td>Book-price:</td>
+                    <td><input type="text" name="price" required style="width: 97%;"></td>
                 </tr>
                 <tr>
-                    <td>Password:</td>
-                    <td><input type="password" name="password" required style="width: 97%;"></td>
+                    <td>Book-pages:</td>
+                    <td><input type="text" name="pages" required style="width: 97%;"></td>
                 </tr>
                 <tr>
-                    <td>Gender</td>
-                    <td>
-                        <input type="radio" name="gender" value="female">Female
-                        <input type="radio" name="gender" value="male">Male
-                    </td>
+                    <td>Book-author</td>
+                    <td><input type="text" name="author" required style="width: 97%;"></td>
+
                 </tr>
                 <tr>
-                    <td>Image:</td>
+                    <td>Book-Image:</td>
                     <td><input type="file" name="image" required></td>
                 </tr>
+
+
                 <tr>
-                    <td>Hobby</td>
-                    <td>
-                        <input type="checkbox" name="hobby" value="reading">Reading
-                        <input type="checkbox" name="hobby" value="cricket">Cricket
-                        <input type="checkbox" name="hobby" value="music">Music
-                        <input type="checkbox" name="hobby" value="travelling">Travelling
-                    </td>
-                </tr>
-                <tr>
-                    <td>City</td>
-                    <td>
-                        <select name="city">
-                            <option value="">---select city---</option>
-                            <% let cities = ["surat", "vadodara", "mahesana", "bhavnagar"]; %>
-                            <% cities.forEach(function(city) { %>
-                                <option value="<%= city %>"><%= city %></option>
-                            <% }); %>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2" align="center"><input type="submit" value="Add Record"></td>
+                    <td colspan="2" align="center"><input type="submit" value="Add Record" style="background-color: #004225;
+                     width: 20%; height: 30px;border: 1px solid black; color: white; font-weight: 700; border-radius: 5px;"></td>
                 </tr>
             </table>
             <br>
             <center>
-                <a href="/" style="font-size: 18px; font-weight: 700; color: brown; text-decoration: none;">Click to View Your Data..!</a>
+                <a href="/" style="font-size: 18px; font-weight: 700; color: brown; text-decoration: none;">Click to
+                    View Your Data..!</a>
             </center>
         </form>
-        
+
     </div>
 </body>
 

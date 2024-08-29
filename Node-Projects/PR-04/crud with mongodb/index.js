@@ -55,14 +55,12 @@ app.get('/add', (req, res) => {
 
 //record insert in mongodb
 app.post('/insertRecord', uploadFile, (req, res) => {
-    const { name, email, password, gender, hobby, city } = req.body;
+    const { name, price, pages, author, image } = req.body;
     UserModel.create({
         name: name,
-        email: email,
-        password: password,
-        gender: gender,
-        hobby: hobby,
-        city: city,
+        price: price,
+        pages: pages,
+        author: author,
         image: req.file.path
     })
         .then(() => {
@@ -115,7 +113,7 @@ app.get('/editRecord', (req, res) => {
 
 //update record
 app.post('/updateRecord', uploadFile, (req, res) => {
-    const { editid, name, email, password, gender, hobby, city } = req.body;
+    const { editid, name, price, pages, author, image } = req.body;
     if (req.file) {
         UserModel.findById(editid)
             .then((single) => {
@@ -126,11 +124,11 @@ app.post('/updateRecord', uploadFile, (req, res) => {
             });
         UserModel.findByIdAndUpdate(editid, {
             name: name,
-            email: email,
-            password: password,
-            gender: gender,
-            hobby: hobby,
-            city: city,
+            price: price,
+            pages: pages,
+            author: author,
+
+
             image: req.file.path
         }).then((response) => {
             console.log("Record update");
@@ -144,11 +142,10 @@ app.post('/updateRecord', uploadFile, (req, res) => {
             .then((single) => {
                 UserModel.findByIdAndUpdate(editid, {
                     name: name,
-                    email: email,
-                    password: password,
-                    gender: gender,
-                    hobby: hobby,
-                    city: city,
+                    price: price,
+                    pages: pages,
+                    author: author,
+
                     image: single.image
                 }).then((response) => {
                     console.log("Record update");
@@ -164,17 +161,7 @@ app.post('/updateRecord', uploadFile, (req, res) => {
 
     }
 
-    // UserModel.findByIdAndUpdate(editid,{
-    //     name : name,
-    //     email : email,
-    //     password : password
-    // }).then((response)=>{
-    //     console.log("Record update");
-    //     return res.redirect('/');
-    // }).catch((err)=>{
-    //     console.log(err);
-    //     return false;
-    // })
+
 })
 
 app.listen(port, (err) => {
