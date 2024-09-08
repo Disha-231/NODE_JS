@@ -20,21 +20,24 @@ const addUser = async (req, res) => {
     });
   }
 };
-
 const viewUser = async (req, res) => {
   try {
     const userview = await user.find({});
-    if (!userview) {
+    if (userview.length === 0) { // Check if the array is empty
       return res.status(404).send({
         success: true,
-        message: "Users found",
+        message: "No users found",
       });
     }
-    return res.status(200).json(userview);
+    return res.status(200).send({
+      success: true,
+      message: "Users found",
+      users: userview,
+    });
   } catch (error) {
     return res.status(500).send({
       success: false,
-      message: error,
+      message: error.message, // Return a more user-friendly error message
     });
   }
 };
@@ -55,16 +58,31 @@ const deleteUser = async (req, res) => {
     });
   }
 };
-
+const singleuser = async (req, res) => {
+  try {
+    let user = await Usermodel.findById(req.query.id)
+    return res.status(200).send({
+      success: true,
+      message: "User found",
+      user: user,
+    })
+  } catch (err) {
+    console.log(err);
+    return false
+  }
+}
 const updateUser = async (req, res) => {
   try {
-    console.log(req.body.id);
+    console.log(req.body);
     const { id, name, email, password } = req.body;
+    console.log(id);
+
     const updated = await user.findByIdAndUpdate(id, {
       name: name,
       email: email,
       password: password,
     });
+
     return res.status(200).send({
       success: true,
       message: "user updated successfully",
@@ -83,4 +101,5 @@ module.exports = {
   viewUser,
   deleteUser,
   updateUser,
+  singleuser
 };

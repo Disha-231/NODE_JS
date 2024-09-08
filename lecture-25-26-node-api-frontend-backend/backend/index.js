@@ -7,13 +7,16 @@ connectDB();
 
 app.use(express.urlencoded());
 
-app.set("view engine", "ejs");
+
+const cors = require('cors')
+
+app.use(express.json())
+
+app.use(cors())
+
 
 app.use("/api/v1", require("./routes/indexRoute"));
 
-const cors = require('cors')
-app.use(cors())
-app.use(express.json())
 
 
 
