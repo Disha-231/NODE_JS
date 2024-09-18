@@ -1,7 +1,7 @@
 const http = require('http');
 const port = 8000;
 const fs = require('fs')
- http.createServer((req, res) => {
+http.createServer((req, res) => {
     //  console.log(req.url);
     let fileName = " ";
     switch (req.url) {
@@ -14,9 +14,9 @@ const fs = require('fs')
         case "/contact":
             fileName = "./contact.html"
             break;
-            case "/product":
-                fileName = "./product.html"
-                break;
+        case "/product":
+            fileName = "./product.html"
+            break;
         default:
             fileName = "./404.html"
             break;
