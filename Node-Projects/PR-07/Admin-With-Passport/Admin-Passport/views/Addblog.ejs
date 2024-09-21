@@ -1,0 +1,162 @@
+<%- include('Header') %>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Add Blog</title>
+        <!-- Bootstrap CSS -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Custom CSS -->
+        <style>
+            body {
+                background-color: #f8f9fa;
+                position: relative;
+                /* Ensure positioning context for the button */
+            }
+
+            .page-wrapper {
+                padding: 20px;
+            }
+
+            .page-breadcrumb {
+                margin-bottom: 20px;
+            }
+
+            .card-hover {
+                transition: transform 0.3s ease;
+            }
+
+            .card-hover:hover {
+                transform: scale(1.05);
+            }
+
+            .form-control {
+                border-radius: 0.25rem;
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            }
+
+            .form-control:focus {
+                box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+                border-color: #38b2ac;
+            }
+
+            .btn-success {
+                transition: background-color 0.3s ease, border-color 0.3s ease;
+                border-radius: 0.5rem;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            .btn-success:hover {
+                background-color: #2d3748;
+                border-color: #2d3748;
+                box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+                transform: translateY(-2px);
+            }
+
+            .btn-success a {
+                color: #fff;
+                text-decoration: none;
+            }
+
+            .btn-success a:hover {
+                color: #e2e8f0;
+            }
+
+            .form-label {
+                font-weight: bold;
+            }
+
+            .box {
+                background-color: #ffffff;
+                border-radius: 0.5rem;
+                padding: 20px;
+                box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .show-button {
+                padding: 10px 20px;
+                font-size: 16px;
+                font-weight: bold;
+                border: none;
+                background-color: #38b2ac;
+                color: white;
+                cursor: pointer;
+                border-radius: 50px;
+                /* Rounded corners */
+                position: absolute;
+                top: 20px;
+                /* Adjust as needed */
+                right: 20px;
+                /* Adjust as needed */
+                text-align: center;
+            }
+
+            .show-button a {
+                color: white;
+                text-decoration: none;
+            }
+
+            .show-button a:hover {
+                color: white;
+                /* Ensure link color stays white */
+            }
+        </style>
+    </head>
+
+    <body>
+        <center>
+            <div class="page-wrapper">
+                <!-- ============================================================== -->
+                <!-- Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <div class="page-breadcrumb">
+                    <div class="row">
+                        <div class="col-12 d-flex no-block align-items-center">
+                            <h4 class="page-title">Add Blog</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card card-hover">
+                                <div class="box bg-light" align="center">
+                                    <form class="p-4" action="/insertBlog" method="post" enctype="multipart/form-data">
+                                        <div class="mb-3">
+                                            <label class="form-label">Title:</label>
+                                            <input type="text" class="form-control" name="title" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Description:</label>
+                                            <input type="text" class="form-control" name="description" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="exampleInputEmail1" class="form-label">Image:</label>
+                                            <input type="file" class="form-control" name="image" accept="image/*">
+                                        </div>
+                                        <button type="submit" class="btn btn-success">Submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Positioned Show Button -->
+                <button class="show-button">
+                    <a href="/admin">Show</a>
+                </button>
+                <!-- End footer -->
+                <!-- ============================================================== -->
+            </div>
+        </center>
+
+        <!-- Bootstrap JS and dependencies -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </body>
+
+    </html>
+    <%- include('Footer') %>
